@@ -1,0 +1,103 @@
+<html>
+
+<head>
+	
+	<title>
+		AMDVS Accounting
+	</title>
+		
+	
+	<link rel="stylesheet" type="text/css" href="mystyle.css" />
+	
+	
+	
+	<script language="JavaScript" type="text/javascript">
+			//Gets the browser specific XmlHttpRequest Object
+			function getXmlHttpRequestObject() {
+				if (window.XMLHttpRequest) {
+					return new XMLHttpRequest(); //Not IE
+				} else if(window.ActiveXObject) {
+					return new ActiveXObject("Microsoft.XMLHTTP"); //IE
+				} else {
+					//Display your error message here. 
+					//and inform the user they might want to upgrade
+					//their browser.
+					alert("Your browser doesn't support the XmlHttpRequest object.  Better upgrade to Firefox.");
+				}
+			}			
+			//Get our browser specific XmlHttpRequest object.
+			var receiveReq = getXmlHttpRequestObject();		
+			//Initiate the asyncronous request.
+			function clientList() {
+				//If our XmlHttpRequest object is not in the middle of a request, start the new asyncronous call.
+				if (receiveReq.readyState == 4 || receiveReq.readyState == 0) {
+					//Setup the connection as a GET call to SayHello.html.
+					//True explicity sets the request to asyncronous (default).
+					receiveReq.open("GET", 'http://localhost/cgi-bin/clientList.pl', true);
+					//Set the function that will be called when the XmlHttpRequest objects state changes.
+					receiveReq.onreadystatechange = handleClientList; 
+					//Make the actual request.
+					receiveReq.send(null);
+				}			
+			}
+			//Called every time our XmlHttpRequest objects state changes.
+			function handleClientList() {
+				//Check to see if the XmlHttpRequests state is finished.
+				if (receiveReq.readyState == 4) {
+					//Set the contents of our span element to the result of the asyncronous call.
+					document.getElementById('Content goes here').innerHTML = receiveReq.responseText;
+				}
+			}
+			</script>
+		
+	
+	
+	
+</head>
+
+<body>
+
+	
+	
+	
+	
+	<table width="500" border="0">
+<tr>
+<td colspan="2" style="background-color:#FFA500;">
+<h1>Easy Accounting</h1>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="background-color:#FFD700;width:100px;text-align:top;">
+
+	<a href="http://localhost/index.html"> Home</a> <br />	<br />
+	<a href="javascript:clientList();"  title="Click here to see all client list!">Client List</a><br />
+	<a href="http://localhost/cgi-bin/addNewClientForm.cgi">Add New Client</a> <br /><br />
+	
+	<a href="http://localhost/cgi-bin/supplierList.pl"  title="Click here to see all supplier list!">Supplier List</a><br />	
+	<a href="http://localhost/addNewSupplier.html" title="">Add New Supplier</a><br /><br />
+	
+	
+	<a href="http://localhost/newItem.html"  title="Click here to add new item!">New Item</a>
+
+
+</td>
+<td style="background-color:#EEEEEE;height:400px;width:400px;text-align:top;">
+<span id="Content goes here"></span>
+
+</td>
+
+</tr>
+
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+Copyright © 2012 AMDVS.com</td>
+</tr>
+</table>
+	
+
+	
+</body>
+
+</html>
