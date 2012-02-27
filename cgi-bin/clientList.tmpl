@@ -1,0 +1,42 @@
+
+	
+
+<table>
+			<caption>Client List</caption>       
+       	
+       		<tr>
+       			<th>ClientID</th>
+       			<th>ClientName</th>
+       			<th>Address</th>
+       			<th>Ccity</th>
+					<th>Mobile#</th> 
+					<th>Balance</th>    
+					    			
+       			
+       		</tr>
+       		
+       		<br />
+					
+	    	   <TMPL_LOOP NAME="DB_LOOP">
+       		<tr>
+
+					<td><TMPL_VAR NAME="clientID"></td>
+       			<td><TMPL_VAR NAME="clientName">	</td>
+       			<td><TMPL_VAR NAME="address"></td>
+       			<td><TMPL_VAR NAME="ccity"></td>
+       			<td><TMPL_VAR NAME="mobileNumber"></td>
+            	<td><a HREF = "<TMPL_VAR NAME="URL">"> Show Balance</a></td>
+            	        	           	
+       		</tr>
+       	 	</TMPL_LOOP> 
+       	
+       	      
+		</table>
+		
+		
+
+   	
+   	
+   	
+   	
+  

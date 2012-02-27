@@ -1,0 +1,70 @@
+
+<HTML>
+	<HEAD>
+   	<TITLE>Test Template</TITLE>
+      <link rel="stylesheet" type="text/css" href="http://localhost/mystyle.css" />
+	</HEAD>
+	
+	<BODY>
+
+	<table width="500" border="0">
+	<tr>
+		<td colspan="2" style="background-color:#FFA500;">
+			<h1>Easy Accounting</h1>
+		</td>
+	</tr>
+
+<tr valign="top">
+<td style="background-color:#FFD700;width:100px;text-align:top;">
+
+	<a href="http://localhost/index.html"> Home</a> <br />	
+	<a href="http://localhost/cgi-bin/newClientForm.cgi">Add New Client</a> <br />
+	<a href="http://localhost/addNewSupplier.html" title="">Add New Supplier</a><br />
+	<a href="http://localhost/cgi-bin/clientList.pl"  title="Click here to see all client list!">Client List</a><br />
+	<a href="http://localhost/cgi-bin/supplierList.pl"  title="Click here to see all supplier list!">Supplier List</a><br />
+	<a href="http://localhost/newItem.html"  title="Click here to add new item!">New Item</a>
+
+
+</td>
+<td style="background-color:#EEEEEE;height:400px;width:400px;text-align:top;">
+
+<form name="newClient"  method="get" action="addNewClient.cgi" onsubmit="alert ('Added!');">
+	
+		<fieldset>
+		<legend> New Client </legend>
+			Client Id:
+			<input type="text" id = "newclientid" name="clientid"  readonly = "readonly" size="5" maxlength="5"/><br />
+			Client Name:
+			<input type="text" name="clientname" value="" /><br />
+			Address:
+			<input type="text" name="address" value="" /><br />
+			City:
+			<input type="text" name="city" value="" /><br />
+			Mobile No.:
+			<input type="text" name="mobileno" value="" size="10" maxlength="10" /><br />
+			<input type="submit" value="add client!" /> <br />
+		</fieldset>
+	</form>
+		 
+		<script type="text/javascript">
+				
+			var newValue = ""; 
+			newValue = "<TMPL_VAR NAME = "preString">"  + "<TMPL_VAR NAME = "clientid">"; 
+			document.getElementById('newclientid').value= newValue;
+  	
+  		</script>	
+  		
+  		
+  		
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+Copyright © 2012 AMDVS.com</td>
+</tr>
+</table>
+   	
+</BODY>
+</HTML>>

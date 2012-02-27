@@ -1,0 +1,168 @@
+
+<HTML>
+	<HEAD>
+   	<TITLE>Test Template</TITLE>
+      <link rel="stylesheet" type="text/css" href="http://localhost/mystyle.css" />
+	
+	
+		<script type="text/javascript">
+		
+		var ck_name = /^[A-Za-z. ]{3,20}$/;
+		var ck_mobilenumber = /^[0-9]{10}$/;
+		
+		//var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]
+			//	{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i 
+		//var ck_username = /^[A-Za-z0-9_]{1,20}$/;
+		//var ck_password =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+		
+		
+		function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+      
+      function validateForm()
+      {
+       	
+			var jsclientname = addNewClient.clientname.value;
+			var jsmobilenumber = addNewClient.mobileno.value;
+				
+ 			       	
+       	//check to see if the field is blank
+			if (addNewClient.clientname.value == "")
+			{	
+				alert("You must enter Client name.");
+				addNewClient.clientname.focus();
+				return (false);
+			}
+			
+			// check to see if name is valid
+			else if (!ck_name.test(jsclientname))
+			{
+  					alert ("Enter Valid name.");
+  					addNewClient.clientname.focus();
+  					return (false);
+ 			}			
+			
+			else if (addNewClient.address.value == "")
+			{	
+				alert("You must enter Address.");
+				addNewClient.address.focus();
+				return (false);
+			}
+			else if (addNewClient.city.value == "")
+			{	
+				alert("You must enter City.");
+				addNewClient.city.focus();
+				return (false);
+			}
+			else if (addNewClient.mobileno.value == "")
+			{	
+				alert("You must enter an Mobile no.");
+				addNewClient.mobileno.focus();
+				return (false);
+			}
+			
+			
+			// check to see if mobile number is valid
+			else if (!ck_mobilenumber.test(jsmobilenumber))
+			{
+  					alert ("Enter Valid Mobile Number.");
+  					addNewClient.mobileno.focus();
+  					return (false);
+ 			}
+			// require at least 3 characters be entered
+			
+			/*			
+			else if (addNewClient.mobileno.value.length != 10)
+			{
+				alert("Please enter 10 numbers in the \"Mobile no\" field.");
+				addNewClient.mobileno.focus();
+				return (false);
+			}*/
+			
+			
+			
+         return true;
+      }
+      
+      
+      
+      
+
+
+		</script>
+	
+	
+	
+	
+	</HEAD>
+	
+	<BODY>
+
+	<table width="500" border="0">
+	<tr>
+		<td colspan="2" style="background-color:#FFA500;">
+			<h1>Easy Accounting</h1>
+		</td>
+	</tr>
+
+<tr valign="top">
+<td style="background-color:#FFD700;width:100px;text-align:top;">
+
+	<a href="http://localhost/index.html"> Home</a> <br />	
+	<a href="http://localhost/cgi-bin/addNewClientForm.cgi">Add New Client</a> <br />
+	<a href="http://localhost/addNewSupplier.html" title="">Add New Supplier</a><br />
+	<a href="http://localhost/cgi-bin/clientList.pl"  title="Click here to see all client list!">Client List</a><br />
+	<a href="http://localhost/cgi-bin/supplierList.pl"  title="Click here to see all supplier list!">Supplier List</a><br />
+	<a href="http://localhost/newItem.html"  title="Click here to add new item!">New Item</a>
+
+
+</td>
+<td style="background-color:#EEEEEE;height:400px;width:400px;text-align:top;">
+
+<form name="addNewClient"  method="get" action="addNewClient.cgi" onsubmit="return validateForm ();">
+	
+		<fieldset>
+		<legend> New Client </legend>
+			Client Id:
+			<input type="text" id = "newclientid" name="clientid"  readonly = "readonly" size="5" maxlength="5"/><br />
+			Client Name:
+			<input type="text" id = "clientname" name="clientname" value="" /><br />
+						
+			
+			<h6 id="demo">This is a paragraph.</h6>			
+			
+			Address:
+			<input type="text" id = "address" name="address" value="" /><br />
+			City:
+			<input type="text"  id = "city" name="city" value="" /><br />
+			Mobile No.:
+			<input type="text"  id = "mobileno" onkeypress="return isNumberKey(event)" name="mobileno" value="" size="10" maxlength="10" /><br />
+			<input type="submit" value="add client!" /> <br />
+		</fieldset>
+	</form>
+		 
+		<script type="text/javascript">
+				
+			var newValue = ""; 
+			newValue = "<TMPL_VAR NAME = "preString">"  + "<TMPL_VAR NAME = "clientid">"; 
+			document.getElementById('newclientid').value= newValue;
+  	
+  		</script>	
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+Copyright © 2012 AMDVS.com</td>
+</tr>
+</table>
+   	
+</BODY>
+</HTML>>

@@ -1,0 +1,99 @@
+
+<HTML>
+	<HEAD>
+   	<TITLE>Test Template</TITLE>
+      <link rel="stylesheet" type="text/css" href="http://localhost/mystyle.css" />
+      
+		</HEAD>
+   
+   <BODY>
+    
+    
+		 
+   	
+
+	<table width="500" border="0">
+<tr>
+<td colspan="2" style="background-color:#FFA500;">
+<h1>Easy Accounting</h1>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="background-color:#FFD700;width:100px;text-align:top;">
+
+	<a href="http://localhost/index.html"> Home</a> <br />	<br />
+	<a href="http://localhost/cgi-bin/clientList.pl"  title="Click here to see all client list!">Client List</a><br />
+	<a href="http://localhost/cgi-bin/newClientForm.cgi">Add New Client</a> <br /><br />
+	
+	<a href="http://localhost/cgi-bin/supplierList.pl"  title="Click here to see all supplier list!">Supplier List</a><br />	
+	<a href="http://localhost/addNewSupplier.html" title="">Add New Supplier</a><br /><br />
+	
+	
+	<a href="http://localhost/newItem.html"  title="Click here to add new item!">New Item</a>
+
+
+</td>
+<td style="background-color:#EEEEEE;height:400px;width:400px;text-align:top;">
+
+
+<table>
+			<caption>Client List</caption>       
+       	
+       		<tr>
+       			<th>DATE</th>
+       			<th>Bill Number</th>
+       			<th>Bill Amount</th>
+       			<th>Paid Amount</th>
+       			
+       			<th>Bill Status</th>
+					  
+					    			
+       			
+       		</tr>
+       		
+       		
+
+		<br />	
+	
+       	   <TMPL_LOOP NAME="DB_LOOP">
+       		<tr>
+
+					<td><TMPL_VAR NAME="date"></td>
+       			<td><TMPL_VAR NAME="billNumber">	</td>
+       			<td> <TMPL_VAR NAME="billAmount"></td>
+       			<td ><TMPL_VAR NAME="paidAmount"></td>
+       	      			
+			<td>
+				<a HREF = "<TMPL_VAR NAME="URL">"> <TMPL_VAR NAME="billStatus">  </a> &nbsp;&nbsp;     			
+       		
+       		<TMPL_IF NAME="BOOL">
+				       		
+       			<a HREF = "<TMPL_VAR NAME="URL2">"> Payment  </a>
+       		
+       		</TMPL_IF>
+       		
+       	</td> 		
+       			
+       			
+       		</tr>
+       	 	</TMPL_LOOP> 
+       	
+       	      
+		</table>
+		
+		
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+Copyright © 2012 AMDVS.com</td>
+</tr>
+</table>
+	
+
+  </BODY>
+</HTML>
+

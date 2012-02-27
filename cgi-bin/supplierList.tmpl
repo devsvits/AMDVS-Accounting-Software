@@ -1,0 +1,39 @@
+
+<HTML>
+	<HEAD>
+   	<TITLE>Test Template</TITLE>
+      <link rel="stylesheet" type="text/css" href="http://localhost/mystyle.css" />
+	</HEAD>
+   
+   <BODY>
+       
+   	<table>
+			<caption>Supplier List</caption>       
+       	
+       		<tr>
+       			<th>SupplierID</th>
+       			<th>SupplierName</th>
+       			<th>Address</th>
+       			<th>City</th>
+					<th>Mobile#</th>       			
+       			
+       		</tr>
+       	
+       	   <TMPL_LOOP NAME="DB_LOOP">
+       		<tr>
+
+					<td><TMPL_VAR NAME="supplierID"></td>
+       			<td><a href="detail.cgi"><TMPL_VAR NAME="supplierName"></a>	</td>
+       			<td><TMPL_VAR NAME="address"></td>
+       			<td><TMPL_VAR NAME="city"></td>
+       			<td><TMPL_VAR NAME="mobileNumber"></td>
+            	
+       		</tr>
+       	 	</TMPL_LOOP> 
+       	
+       	      
+		</table>
+       
+   </BODY>
+</HTML>
+
